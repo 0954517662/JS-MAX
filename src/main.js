@@ -9,12 +9,12 @@ const config = require('./config');
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 //let exec = require('child_process').exec;
 
-const myBot = ['ueacedbe88bf6e2c5cf6188b3a4a26e18','u5a8f1f79740e3dc876a13ab7f7381340'];
+const myBot = ['u4862fe4b182b2fd194a3108e2f3662e8'];
 const banList = [];//Banned list
 var groupList = new Array();//Group list
 var vx = {};var midnornama,pesane,kickhim;var waitMsg = "no";//DO NOT CHANGE THIS
 const imgArr = ['png','jpg','jpeg','gif','bmp','webp'];//DO NOT CHANGE THIS
-var komenTL = "AutoLike by GoogleX\nline://ti/p/~rakamastah"; //Comment for timeline
+var komenTL = "AutoLike by GoogleX\nline://ti/p/~max_pv"; //Comment for timeline
 var bcText = "Masukan teks untuk broadcast";
 var limitposts = '10'; //Output timeline post
 
@@ -54,7 +54,7 @@ class LINE extends LineAPI {
         this.receiverID = '';
         this.checkReader = [];
         this.stateStatus = {
-			autojoin: 0, //0 = No, 1 = Yes
+			autojoin: 1, //0 = No, 1 = Yes
             cancel: 0, //0 = Auto cancel off, 1 = on
             kick: 1, //1 = Yes, 0 = No
 			mute: 0, //1 = Mute, 0 = Unmute
@@ -63,45 +63,45 @@ class LINE extends LineAPI {
 			salam: 1 //1 = Yes, 0 = No
         }
 		this.keyhelp = "\n\
-====================\n\
-# Keyword List\n\n\
-=> !addcontact *ADMIN*\n\
-=> !adminutil *ADMIN*\n\
-=> !animesearch\n\
-=> !ban *ADMIN*\n\
-=> !banlist\n\
-=> !botcontact\n\
-=> !botleft *ADMIN*\n\
-=> broadcast *ADMIN*\n\
-=> !cancel\n\
-=> !cekid\n\
-=> !curl\n\
-=> !getimage\n\
-=> !ginfo\n\
-=> !grouputil *ADMIN*\n\
-=> !gURL\n\
-=> !halo\n\
-=> !kepo\n\
-=> !key\n\
-=> !kickban *ADMIN*\n\
-=> !kickall *ADMIN*\n\
-=> !kickme\n\
-=> !msg\n\
-=> !mute *ADMIN*\n\
-=> !myid\n\
-=> !refresh *ADMIN*\n\
-=> !sendcontact\n\
-=> !setting\n\
-=> !sms\n\
-=> !speed\n\
-=> !tagall\n\
-=> !tts\n\
-=> !unmute *ADMIN*\n\
-=> !unban *ADMIN*\n\
-=> !whattime\n\
-=> !yousound\n\
-=> !youtube\n\
-\n\n# http://line.me/ti/p/4bvwOIMft8  ^_^";
+========MAXSY========\n\
+【さัএπัஞ✵ບิथℓℓҨतΩ】\n\n\
+╠❂➣ !addcontact *ADMIN*\n\
+╠❂➣ !adminutil *ADMIN*\n\
+╠❂➣ !animesearch\n\
+╠❂➣ !ban *ADMIN*\n\
+╠❂➣ !banlist\n\
+╠❂➣ !botcontact\n\
+╠❂➣ !botleft *ADMIN*\n\
+╠❂➣ broadcast *ADMIN*\n\
+╠❂➣ !cancel\n\
+╠❂➣ !cekid\n\
+╠❂➣ !curl\n\
+╠❂➣ !getimage\n\
+╠❂➣ !ginfo\n\
+╠❂➣ !grouputil *ADMIN*\n\
+╠❂➣ !gURL\n\
+╠❂➣ !halo\n\
+╠❂➣ !kepo\n\
+╠❂➣ !key\n\
+╠❂➣ !kickban *ADMIN*\n\
+╠❂➣ รักนะ *ADMIN*\n\
+╠❂➣ !kickme\n\
+╠❂➣ !msg\n\
+╠❂➣ !mute *ADMIN*\n\
+╠❂➣ !myid\n\
+╠❂➣ !refresh *ADMIN*\n\
+╠❂➣ !sendcontact\n\
+╠❂➣ !setting\n\
+╠❂➣ !sms\n\
+╠❂➣ !speed\n\
+╠❂➣ !tagall\n\
+╠❂➣ !tts\n\
+╠❂➣ !unmute *ADMIN*\n\
+╠❂➣ !unban *ADMIN*\n\
+╠❂➣ !whattime\n\
+╠❂➣ !yousound\n\
+╠❂➣ !youtube\n\
+\n\n# http://line.me/ti/p/~max_pv ʕ•ﻌ•ʔ";
         var that = this;
     }
 
@@ -139,7 +139,7 @@ class LINE extends LineAPI {
 		if(operation.type == 16 && this.stateStatus.salam == 1){//join group
 			let halo = new Message();
 			halo.to = operation.param1;
-			halo.text = "Halo, Salam Kenal ^_^ !";
+			halo.text = "Halo, Salam Kenal ʕ•ﻌ•ʔ !";
 			this._client.sendMessage(0, halo);
 		}
 		
@@ -173,7 +173,7 @@ class LINE extends LineAPI {
 		if(operation.type == 5 && this.stateStatus.salam == 1) {//someone adding me..
             let halo = new Message();
 			halo.to = operation.param1;
-			halo.text = "Creator: line.me/ti/p/4bvwOIMft8 (~GoogleX)";
+			halo.text = "ผู้สร้าง: line.me/ti/p/~max_pv ʕ•ﻌ•ʔ";
 			this._client.sendMessage(0, halo);
         }
 
@@ -1530,7 +1530,7 @@ Link Download: "+idU.id+"\n";
 
         if(txt == '!halo') {
 			let { mid, displayName } = await this._client.getProfile();
-            this._sendMessage(seq, 'สวัสดี'+displayName);
+            this._sendMessage(seq, 'Halo '+displayName);
         }
 		
 		if(vx[1] == "!grouputil" && seq.from_ == vx[0] && waitMsg == "yes"){
@@ -1653,14 +1653,14 @@ Link Download: "+idU.id+"\n";
             })
         }*/
 
-        if(txt === '!kickall' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
+        if(txt === 'รักนะ' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
             let { listMember } = await this.searchGroup(seq.to);
             for (var i = 0; i < listMember.length; i++) {
                 if(!isAdminOrBot(listMember[i].mid)){
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === '!kickall' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === 'รักนะ' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
 		
 		if(txt == '!key') {
 			let botOwner = await this._client.getContacts([myBot[0]]);
