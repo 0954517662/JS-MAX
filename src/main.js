@@ -63,45 +63,46 @@ class LINE extends LineAPI {
 			salam: 1 //1 = Yes, 0 = No
         }
 		this.keyhelp = "\n\
-========MAXSY========\n\
-【さัএπัஞ✵ບิथℓℓҨतΩ】\n\n\
-╠❂➣ !addcontact *ADMIN*\n\
-╠❂➣ !adminutil *ADMIN*\n\
-╠❂➣ !animesearch\n\
-╠❂➣ !ban *ADMIN*\n\
-╠❂➣ !banlist\n\
-╠❂➣ !botcontact\n\
-╠❂➣ !botleft *ADMIN*\n\
-╠❂➣ broadcast *ADMIN*\n\
-╠❂➣ !cancel\n\
-╠❂➣ !cekid\n\
-╠❂➣ !curl\n\
-╠❂➣ !getimage\n\
-╠❂➣ !ginfo\n\
-╠❂➣ !grouputil *ADMIN*\n\
-╠❂➣ !gURL\n\
-╠❂➣ !halo\n\
-╠❂➣ !kepo\n\
-╠❂➣ !key\n\
-╠❂➣ !kickban *ADMIN*\n\
-╠❂➣ รักนะ *ADMIN*\n\
-╠❂➣ !kickme\n\
-╠❂➣ !msg\n\
-╠❂➣ !mute *ADMIN*\n\
-╠❂➣ !myid\n\
-╠❂➣ !refresh *ADMIN*\n\
-╠❂➣ !sendcontact\n\
-╠❂➣ !setting\n\
-╠❂➣ !sms\n\
-╠❂➣ !speed\n\
-╠❂➣ !tagall\n\
-╠❂➣ !tts\n\
-╠❂➣ !unmute *ADMIN*\n\
-╠❂➣ !unban *ADMIN*\n\
-╠❂➣ !whattime\n\
-╠❂➣ !yousound\n\
-╠❂➣ !youtube\n\
-\n\n# http://line.me/ti/p/~max_pv ʕ•ﻌ•ʔ";
+【さัএπัஞ✵ບิथℓℓҨतΩ】\n\
+╭──────────╮\n\n\
+│ ≫ !addcontact *ADMIN*\n\
+│ ≫ !adminutil *ADMIN*\n\
+│ ≫ !animesearch\n\
+│ ≫ !ban *ADMIN*\n\
+│ ≫ !banlist\n\
+│ ≫ !botcontact\n\
+│ ≫ !botleft *ADMIN*\n\
+│ ≫ !broadcast *ADMIN*\n\
+│ ≫ !cancel\n\
+│ ≫ !cekid\n\
+│ ≫ !curl\n\
+│ ≫ !getimage\n\
+│ ≫ !ginfo\n\
+│ ≫ !grouputil *ADMIN*\n\
+│ ≫ !gURL\n\
+│ ≫ !halo\n\
+│ ≫ !kepo\n\
+│ ≫ !help\n\
+│ ≫ !kickban *ADMIN*\n\
+│ ≫ มีอีกไหม *คำสั่งบิน*\n\
+│ ≫ !kickme\n\
+│ ≫ !msg\n\
+│ ≫ !mute *ADMIN*\n\
+│ ≫ !myid\n\
+│ ≫ !refresh *ADMIN*\n\
+│ ≫ !sendcontact\n\
+│ ≫ !setting\n\
+│ ≫ !sms\n\
+│ ≫ !speed\n\
+│ ≫ !tagall\n\
+│ ≫ !tts\n\
+│ ≫ !unmute *ADMIN*\n\
+│ ≫ !unban *ADMIN*\n\
+│ ≫ !whattime\n\
+│ ≫ !yousound\n\
+│ ≫ !youtube\n\
+╰──────────╯\n\
+\n\nline.me/ti/p/~bots_line";
         var that = this;
     }
 
@@ -1616,7 +1617,7 @@ Link Download: "+idU.id+"\n";
                     this._client.sendMessage(0, bcm);
 	        	}
             }
-        }else if(cox[0] == "broadcast" && isAdminOrBot(seq.from_) && !cox[1]){this._sendMessage(seq,"# How to broadcast:\nbroadcast yourtexthere");}else if(cox[0] == "broadcast" && !isAdminOrBot(seq.from_)){this._sendMessage(seq,"Not permitted!");}
+        }else if(cox[0] == "!broadcast" && isAdminOrBot(seq.from_) && !cox[1]){this._sendMessage(seq,"# How to broadcast:\nbroadcast yourtexthere");}else if(cox[0] == "broadcast" && !isAdminOrBot(seq.from_)){this._sendMessage(seq,"Not permitted!");}
 		
 		if(txt == "!kickme" && seq.toType == 2 && !isBanned(banList, seq.from_) && this.stateStatus.kick == 1){
 			this._sendMessage(seq,"Ok bang !");
@@ -1653,14 +1654,14 @@ Link Download: "+idU.id+"\n";
             })
         }*/
 
-        if(txt === 'รักนะ' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
+        if(txt === 'มีอีกไหม' && this.stateStatus.kick == 1 && isAdminOrBot(seq.from_) && seq.toType == 2) {
             let { listMember } = await this.searchGroup(seq.to);
             for (var i = 0; i < listMember.length; i++) {
                 if(!isAdminOrBot(listMember[i].mid)){
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === 'รักนะ' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === 'มีอีกไหม' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
 		
 		if(txt == '!key') {
 			let botOwner = await this._client.getContacts([myBot[0]]);
